@@ -7,6 +7,10 @@ util = require 'gulp-util'
 clean= require 'gulp-clean'
 rename = require 'gulp-rename'
 
+gulp.task 'clean', ->
+  gulp.src(['./dist/'], {read: false})
+  .pipe(clean())
+
 gulp.task 'concat-coffee', ['clean'], ->
   gulp.src('./src/**/*.coffee')
   .pipe(concat('oblique2.coffee'))
@@ -22,9 +26,5 @@ gulp.task 'uglify', [ 'coffee-to-js' ], ->
   .pipe(rename('oblique2.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest('./dist/'))
-
-gulp.task 'clean', ->
-  gulp.src(['./dist/'], {read: false})
-  .pipe(clean())
 
 gulp.task 'default', [ 'uglify' ], ->
