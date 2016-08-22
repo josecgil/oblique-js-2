@@ -1,5 +1,6 @@
 gulp = require "gulp"
 coffee = require 'gulp-coffee'
+coffeelint = require 'gulp-coffeelint'
 concat = require 'gulp-concat'
 util   = require 'gulp-util'
 uglify = require 'gulp-uglify'
@@ -16,7 +17,12 @@ gulp.task 'concat-coffee', ['clean'], ->
   .pipe(concat('oblique2.coffee'))
   .pipe(gulp.dest('./dist/'))
 
-gulp.task 'coffee-to-js', ['concat-coffee'], ->
+gulp.task 'coffee-lint', ['concat-coffee'], ->
+  gulp.src('./dist/*.coffee')
+  .pipe(coffeelint())
+  .pipe(coffeelint.reporter())
+
+gulp.task 'coffee-to-js', ['coffee-lint'], ->
   gulp.src('./dist/*.coffee')
   .pipe(coffee().on('error', util.log))
   .pipe(gulp.dest('./dist/'))

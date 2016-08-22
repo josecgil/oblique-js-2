@@ -1,6 +1,5 @@
 class EventBus
   constructor: () ->
-
     @_listenersByEventName={}
 
   on : (eventName, eventHandler) ->
