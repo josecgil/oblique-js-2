@@ -6,12 +6,14 @@
     <script type="text/javascript" src="../vendor/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="../vendor/md5.js"></script>
     <script type="text/javascript" src="../dist/oblique2.js"></script>
+    <script type="text/javascript" src="DOMListener.js"></script>
     <script type="text/javascript">
-        jQuery("html").on("oblique.dom_ready", function() {
+        var domListener=new DOMListener();
+
+        domListener.on("oblique.dom_ready", function() {
             console.log("oblique.dom_ready fired");
         });
-
-        jQuery("html").on("oblique.dom_changed", function() {
+        domListener.on("oblique.dom_changed", function() {
             console.log("oblique.dom_changed fired");
         });
 
@@ -19,7 +21,6 @@
             document.body.innerHTML=document.body.innerHTML+"<p>Hello</p>"
         }, 2000);
 
-        new DOMListener();
 
 
     </script>

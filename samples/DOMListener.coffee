@@ -3,10 +3,12 @@ class DOMListener
   _lastBodyMD5=null
 
   constructor:->
+    @_EventBus=new EventBus()
+
     jQuery(document).ready(=>
       @_lastBodyMD5=@_InnerHtmlMD5()
       @_checkDOMChanged()
-      jQuery("html").trigger("oblique.dom_ready")
+      @_EventBus.notify("oblique.dom_ready")
     )
 
   _InnerHtmlMD5 : ->
@@ -19,14 +21,14 @@ class DOMListener
 
     bodyHashChangedSinceLastTime = newBodyMD5 isnt @_lastBodyMD5
     if bodyHashChangedSinceLastTime
-      jQuery("html").trigger("oblique.dom_changed")
-
+      @_EventBus.notify("oblique.dom_changed")
     @_lastBodyMD5=newBodyMD5
 
     setTimeout(()=>
       @_checkDOMChanged()
     , 200)
 
-
+  on:(eventName, eventHandler)->
+    @_EventBus.on eventName, eventHandler
 
 window.DOMListener=DOMListener
