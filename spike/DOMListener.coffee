@@ -32,3 +32,4 @@ class DOMListener
     @_EventBus.on eventName, eventHandler
 
 window.DOMListener=DOMListener
+
