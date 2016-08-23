@@ -6,7 +6,7 @@ describe 'Oblique Events', ->
     Oblique().destroy()
     oblique=new Oblique();
 
-  it 'must notify a subscriber', (done)->
+  it 'must notify a subscriber on trigger', (done)->
     eventName="oblique.event-name"
     eventHandler=->
       done()

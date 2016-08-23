@@ -7,13 +7,20 @@
     <script type="text/javascript" src="../vendor/md5.js"></script>
     <script type="text/javascript" src="../dist/oblique2.js"></script>
     <script type="text/javascript" src="DOMListener.js"></script>
+    <script type="text/javascript" src="DOMReady.js"></script>
     <script type="text/javascript">
         var domListener=new DOMListener();
 
-        domListener.on("oblique.dom_ready", function() {
+        new DOMReady();
+
+        Oblique().on("ready.ob.dom", function() {
+            console.log("ready.ob.dom fired");
+        });
+
+        Oblique().on("oblique.dom_ready", function() {
             console.log("oblique.dom_ready fired");
         });
-        domListener.on("oblique.dom_changed", function() {
+        Oblique().on("oblique.dom_changed", function() {
             console.log("oblique.dom_changed fired");
         });
 
