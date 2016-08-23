@@ -1,30 +1,33 @@
-describe 'Event Bus', ->
+describe 'Oblique Events', ->
 
-  it 'must subscribe a listener', (done)->
-    eventBus=new EventBus();
+  oblique=undefined
+
+  beforeEach ->
+    Oblique().destroy()
+    oblique=new Oblique();
+
+  it 'must notify a subscriber', (done)->
     eventName="oblique.event-name"
     eventHandler=->
       done()
 
-    eventBus.on(eventName, eventHandler)
+    oblique.on(eventName, eventHandler)
 
-    eventBus.notify(eventName)
+    oblique.notify(eventName)
 
   it 'must not call my listener if notified event is not mine', (done)->
-    eventBus=new EventBus();
     eventName="oblique.event-name"
     eventHandler=->
       fail("my event handler was called")
 
-    eventBus.on(eventName, eventHandler)
+    oblique.on(eventName, eventHandler)
 
-    eventBus.notify("oblique.otherEvent")
+    oblique.notify("oblique.other-event")
     setTimeout(->
       done()
     , 200)
 
   it 'must pass my data to a listener', (done)->
-    eventBus=new EventBus();
     eventData=["someData"]
     eventName="oblique.event-name"
 
@@ -32,18 +35,17 @@ describe 'Event Bus', ->
       expect(eventDataFromBus).toEqual(eventData)
       done()
 
-    eventBus.on(eventName, eventHandler)
+    oblique.on(eventName, eventHandler)
 
-    eventBus.notify(eventName, eventData)
+    oblique.notify(eventName, eventData)
 
   it "must pass undefined as data if I don't send it in notify", (done)->
-    eventBus=new EventBus();
     eventName="oblique.event-name"
 
     eventHandler=(eventDataFromBus)->
       expect(eventDataFromBus).toBeUndefined()
       done()
 
-    eventBus.on(eventName, eventHandler)
+    oblique.on(eventName, eventHandler)
 
-    eventBus.notify(eventName)
+    oblique.notify(eventName)

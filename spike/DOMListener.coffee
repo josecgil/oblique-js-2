@@ -3,7 +3,7 @@ class DOMListener
   _lastBodyMD5=null
 
   constructor:->
-    @_EventBus=new EventBus()
+    @_EventBus=Oblique().getEventBus()
 
     jQuery(document).ready(=>
       @_lastBodyMD5=@_InnerHtmlMD5()
