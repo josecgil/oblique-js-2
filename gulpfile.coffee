@@ -7,6 +7,7 @@ uglify = require 'gulp-uglify'
 util = require 'gulp-util'
 clean= require 'gulp-clean'
 rename = require 'gulp-rename'
+insert= require 'gulp-insert'
 
 gulp.task 'clean', ->
   gulp.src(['./dist/'], {read: false})
@@ -14,6 +15,10 @@ gulp.task 'clean', ->
 
 gulp.task 'concat-coffee', ['clean'], ->
   gulp.src('./src/**/*.coffee')
+  .pipe(insert.transform((contents, file) ->
+      comment = '\n# ' + file.relative + '\n\n'
+      comment + contents
+    ))
   .pipe(concat('oblique2.coffee'))
   .pipe(gulp.dest('./dist/'))
 
