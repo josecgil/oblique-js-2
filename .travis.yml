@@ -1,5 +1,6 @@
 before_script:
-  - npm install gulp
+  - npm install -g gulp
+  - npm install -g coffee-script
 script: gulp
 language: javascript
 sudo: required
