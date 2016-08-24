@@ -2,3 +2,4 @@ before_script:
   - npm install -g gulp
 script: gulp
 language: javascript
+sudo: required
