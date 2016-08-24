@@ -5,9 +5,8 @@ before_script:
   - npm install karma -g
   - npm install karma-coverage -g
   - npm install karma-jasmine -g
-  - npm install karma-chrome-launcher -g
-  - npm install karma-firefox-launcher -g
-  - npm install karma-safari-launcher -g
+  - npm install phantomjs -g
+  - npm install karma-phantomjs-launcher -g
 
-script: karma start && gulp
+script: karma start --single-run --browsers PhantomJS && gulp
 language: javascript
