@@ -3,5 +3,5 @@ before_script:
   - npm install gulp
   - npm install coffee-script
 
-script: gulp
+script: karma start && gulp
 language: javascript
