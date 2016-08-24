@@ -11,5 +11,5 @@ describe 'Oblique Singleton', ->
 
   it 'must return another instance if first called destroy()', ()->
     firstOblique=Oblique()
-    #firstOblique.destroy()
+    firstOblique.destroy()
     expect(firstOblique is Oblique()).toBeFalsy()
