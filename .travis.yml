@@ -1,5 +1,5 @@
 before_script:
-  - npm install -g gulp
+  - npm install gulp
 script: gulp
 language: javascript
 sudo: required

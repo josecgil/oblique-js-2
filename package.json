@@ -4,6 +4,7 @@
   "description": "A frontend framework to create the JS part of web apps",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npm i -g coffee-script",
     "test": "karma start"
   },
   "author": "@josecgil",
