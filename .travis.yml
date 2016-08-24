@@ -4,6 +4,6 @@ before_script:
   - npm install coffee-script -g
   - npm install karma -g
   - npm install karma-coverage -g
-  - npm install karma-jasmine -g
+  - npm install karma-jasmine -gdddssddfthyuñlkhgfdsartyui`tyuiortyuioiuytrewq
 script: karma start && gulp
 language: javascript
