@@ -13,7 +13,6 @@
     return it('must return another instance if first called destroy()', function() {
       var firstOblique;
       firstOblique = Oblique();
-      firstOblique.destroy();
       return expect(firstOblique === Oblique()).toBeFalsy();
     });
   });
