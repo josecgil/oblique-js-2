@@ -3,6 +3,6 @@ before_script:
   - npm install gulp -g
   - npm install coffee-script -g
   - npm install karma -g
-
+  - npm install karma-coverage -g
 script: karma start && gulp
 language: javascript
