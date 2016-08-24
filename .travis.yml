@@ -5,5 +5,9 @@ before_script:
   - npm install karma -g
   - npm install karma-coverage -g
   - npm install karma-jasmine -g
+  - npm install karma-chrome-launcher -g
+  - npm install karma-firefox-launcher -g
+  - npm install karma-safari-launcher -g
+
 script: karma start && gulp
 language: javascript
