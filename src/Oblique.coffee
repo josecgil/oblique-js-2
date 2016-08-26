@@ -1,4 +1,4 @@
-class Oblique
+class @Oblique
 
   constructor:()->
     return new Oblique() if @ is window
@@ -6,6 +6,7 @@ class Oblique
     Oblique._singletonInstance = @
 
     @_EventBus=new EventBus()
+    @_DOMReadyListener=new DOMReadyListener()
 
   on : (eventName, eventHandler) ->
     @_EventBus.on eventName, eventHandler
@@ -15,5 +16,3 @@ class Oblique
 
   destroy: ->
     Oblique._singletonInstance=undefined
-
-window.Oblique=Oblique

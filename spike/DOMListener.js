@@ -12,8 +12,7 @@
       jQuery(document).ready((function(_this) {
         return function() {
           _this._lastBodyMD5 = _this._InnerHtmlMD5();
-          _this._checkDOMChanged();
-          return _this._oblique.notify("oblique.dom_ready");
+          return _this._checkDOMChanged();
         };
       })(this));
     }
@@ -32,7 +31,7 @@
       newBodyMD5 = this._InnerHtmlMD5();
       bodyHashChangedSinceLastTime = newBodyMD5 !== this._lastBodyMD5;
       if (bodyHashChangedSinceLastTime) {
-        this._oblique.notify("oblique.dom_changed");
+        this._oblique.notify(Events.domChanged);
       }
       this._lastBodyMD5 = newBodyMD5;
       return setTimeout((function(_this) {

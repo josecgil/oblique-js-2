@@ -19,7 +19,7 @@ gulp.task 'concat-coffee', ['clean'], ->
       comment = '\n# ' + file.relative + '\n\n'
       comment + contents
     ))
-  .pipe(concat('oblique2.coffee'))
+  .pipe(concat('oblique2_src.coffee'))
   .pipe(gulp.dest('./dist/'))
 
 gulp.task 'coffee-lint', ['concat-coffee'], ->
@@ -32,8 +32,17 @@ gulp.task 'coffee-to-js', ['coffee-lint'], ->
   .pipe(coffee().on('error', util.log))
   .pipe(gulp.dest('./dist/'))
 
-gulp.task 'uglify', [ 'coffee-to-js' ], ->
-  gulp.src('./dist/*.js')
+gulp.task 'add-lib-to-js', ['coffee-to-js'], ->
+  gulp.src(['./lib/**/*.js','./dist/*.js'])
+  .pipe(insert.transform((contents, file) ->
+      comment = '\n// ' + file.relative + '\n\n'
+      comment + contents
+    ))
+  .pipe(concat('oblique2.js'))
+  .pipe(gulp.dest('./dist/'))
+
+gulp.task 'uglify', [ 'add-lib-to-js' ], ->
+  gulp.src('./dist/oblique2.js')
   .pipe(rename('oblique2.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest('./dist/'))

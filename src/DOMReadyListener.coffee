@@ -1,4 +1,4 @@
-class DOMReady
+class @DOMReadyListener
 
   addDocumentLoadEventListener = ->
     document.addEventListener 'DOMContentLoaded', completed
@@ -32,6 +32,3 @@ class DOMReady
     return true if isComplete
     return true if (not isLoading) and (not isScrolling)
     return false
-
-
-window.DOMReady=DOMReady
