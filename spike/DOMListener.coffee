@@ -8,7 +8,6 @@ class DOMListener
     jQuery(document).ready(=>
       @_lastBodyMD5=@_InnerHtmlMD5()
       @_checkDOMChanged()
-      @_oblique.notify("oblique.dom_ready")
     )
 
   _InnerHtmlMD5 : ->
@@ -21,7 +20,7 @@ class DOMListener
 
     bodyHashChangedSinceLastTime = newBodyMD5 isnt @_lastBodyMD5
     if bodyHashChangedSinceLastTime
-      @_oblique.notify("oblique.dom_changed")
+      @_oblique.notify(Events.domChanged)
     @_lastBodyMD5=newBodyMD5
 
     setTimeout(()=>

@@ -1,4 +1,4 @@
-class EventBus
+class @EventBus
   constructor: () ->
     @_listenersByEventName={}
 
@@ -16,5 +16,3 @@ class EventBus
     return if listeners is undefined
     for listener in listeners
       listener(eventData)
-
-window.EventBus=EventBus

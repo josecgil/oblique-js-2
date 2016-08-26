@@ -14,13 +14,14 @@ if I don't know the changes in DOM)
 * Not jQuery dependent
 * Use gulp instead of custom scripts
 * Use karma instead of manual test execution
+* Use online Continuous Integration
 * Samples in Java and ASP.NET
 * Compatible with Oblique 1
 
 Infrastructure needed:
 
-* event bus
-* dom ready detection
-* dom selection
+* event bus - ok
+* dom ready detection - ok
+* dom selection (embed Sizzle?)
 * dom reading tags
 * dom element storage
