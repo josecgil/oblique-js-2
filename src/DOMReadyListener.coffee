@@ -24,6 +24,7 @@ class @DOMReadyListener
 
     addDocumentLoadEventListener()
 
+
   documentIsReady : ->
     readyState = document.readyState
     isScrolling = document.documentElement.doScroll
