@@ -33,8 +33,10 @@ module.exports = function(config) {
 
     // optionally, configure the reporter
     coverageReporter: {
-        type : 'html',
-        dir : 'coverage/'
+        reporters:[
+            {type: 'html', dir:'coverage/'},
+            {type: 'text'}
+        ]
     },
 
     // test results reporter to use
@@ -67,7 +69,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
