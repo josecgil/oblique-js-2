@@ -1,6 +1,6 @@
 before_script:
   - npm install
-  - npm install gulp coffee-script karma karma-coverage karma-jasmine phantomjs-prebuilt karma-phantomjs-launcher -g
+  - npm install gulp coffeescript karma karma-coverage karma-jasmine phantomjs-prebuilt karma-phantomjs-launcher jasmine-core -g
 
-script: karma start --single-run --browsers PhantomJS && gulp
+script: gulp && karma start --single-run --browsers PhantomJS firefox
 language: javascript
