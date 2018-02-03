@@ -4,7 +4,7 @@
   "description": "A frontend framework to create the JS part of web apps",
   "main": "index.js",
   "scripts": {
-    "test": "karma start"
+    "test": "karma start karma.conf.js"
   },
   "author": "@josecgil",
   "license": "MIT",
