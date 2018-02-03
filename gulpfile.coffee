@@ -48,3 +48,4 @@ gulp.task 'uglify', [ 'add-lib-to-js' ], ->
   .pipe(gulp.dest('./dist/'))
 
 gulp.task 'default', [ 'uglify' ], ->
+

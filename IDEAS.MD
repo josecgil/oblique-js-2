@@ -14,8 +14,9 @@ if I don't know the changes in DOM)
 * Not jQuery dependent
 * Use gulp instead of custom scripts
 * Use karma instead of manual test execution
+* Use Jest for testing?
 * Use online Continuous Integration
-* Samples in Java and ASP.NET
+* Samples in Java/.NET/PHP
 * Compatible with Oblique 1
 
 Infrastructure needed:

@@ -33,3 +33,4 @@ class @DOMReadyListener
     return true if isComplete
     return true if (not isLoading) and (not isScrolling)
     return false
+

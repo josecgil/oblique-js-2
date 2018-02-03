@@ -49,3 +49,4 @@ describe 'Oblique Events', ->
     oblique.on(eventName, eventHandler)
 
     oblique.notify(eventName)
+

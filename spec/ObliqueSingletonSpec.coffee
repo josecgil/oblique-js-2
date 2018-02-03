@@ -13,3 +13,4 @@ describe 'Oblique Singleton', ->
     firstOblique=Oblique()
     firstOblique.destroy()
     expect(firstOblique is Oblique()).toBeFalsy()
+

@@ -16,3 +16,4 @@ class @Oblique
 
   destroy: ->
     Oblique._singletonInstance=undefined
+

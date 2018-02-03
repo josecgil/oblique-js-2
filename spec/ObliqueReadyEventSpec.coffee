@@ -16,3 +16,4 @@ describe 'Oblique DOM Ready', ->
       done()
     )
     fireDOMLoadEvent()
+

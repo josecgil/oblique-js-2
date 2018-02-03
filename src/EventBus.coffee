@@ -16,3 +16,4 @@ class @EventBus
     return if listeners is undefined
     for listener in listeners
       listener(eventData)
+
